@@ -1,0 +1,14 @@
+{% extends "accounts/base.html" %}
+{% load static %}
+ 
+{% block content %}
+    <h1>Signup</h1>
+    <form action="/accounts/signup/" method="post">
+    	{% csrf_token %}
+        {{ form.as_p }}
+    <a href="{% url 'accounts:login' %}">Already have an account?</a>
+        <input class='btn btn-primary' type="submit" value="Signup">
+    </form>
+    <button class="btn btn-primary" onclick="location.href='http://127.0.0.1:8000/allauth/google/login/'">Signup with Google</button>
+   
+{% endblock content %}
