@@ -7,5 +7,6 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('profile/', views.profile, name='profile'),
     path('about/', views.about, name='about'),
+    path('detail/<int:pk>/', views.detail, name='detail'),
     # path('import/', views.import_view, name='import'),
     ]

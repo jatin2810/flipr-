@@ -55,41 +55,31 @@
             <h2 class="section-title mb-2">109,234 Job Listed</h2>
           </div>
         </div>
-        
 
+       
         <div class="mb-5">
           {% for item in context %}
           <div class="row align-items-start job-item border-bottom pb-3 mb-3 pt-3">
             <!-- <div class="col-md-2">
               <a href="job-single.html"><img src="images/featured-listing-1.jpg" alt="Image" class="img-fluid"></a>
             </div> -->
-            <!-- uniq_id = models.CharField(max_length=200,unique=True,null=True,blank=True) -->
-    <!-- company = models.CharField(max_length=200,null=True,blank=True) -->
-    <!-- education = models.CharField(max_length=2000,null=True,blank=True)   -->
-    <!-- experience = models.CharField(max_length=600,null=True,blank=True) -->
-    <!-- industry = models.CharField(max_length=700,null=True,blank=True) -->
-    <!-- jobdescription = models.CharField(max_length=2000,null=True,blank=True)
-    jobid = models.CharField(max_length=200,null=True,blank=True) -->
-    <!-- joblocation_address = models.CharField(max_length=200,null=True,blank=True) -->
-    <!-- jobtitle = models.CharField(max_length=200,null=True,blank=True) -->
-    <!-- numberofpositions = models.CharField(max_length=200,null=True,blank=True) -->
-    <!-- payrate = models.CharField(max_length=200,null=True,blank=True) -->
-    <!-- postdate = models.CharField(max_length=200,null=True,blank=True)
-    site_name = models.CharField(max_length=200,null=True,blank=True)
-    skills = models.CharField(max_length=200,null=True,blank=True) -->
+           
 
             
             <div class="col-md-4">
               <span class="badge badge-primary px-2 py-1 mb-3">{{ item.industry}}</span>
-              <h2><a href="job-single.html">{{item.jobtitle}}</a> </h2>
-              <p class="meta">Company: <strong>{{item.company}}</strong> Location: <strong>{{item.location}}</strong></p>
+              
+              
+              <h2><a type='button' href="{% url 'jobs:detail' item.id %}">{{item.jobtitle}}</a> </h2>
+              <p class="meta">Company: <strong>{{item.company}}</strong> <br>Location: <strong>{{item.joblocation_address}}</strong></p>
             </div>
             <div class="col-md-3 text-left">
-              <h3>{{item.experience}}</h3>
-              <span class="meta">{{item.education}}</span>
+              <h3>Experience : <strong>{{item.experience}}</strong></h3>
+              <span class="meta"><strong>Education</strong> :{{item.education}}</span>
             </div>
             <div class="col-md-3 text-md-right">
-              <strong class="text-black">{{item.payrate}}</strong>
+              <span class="meta"><strong>CTC : </strong> <strong>{{item.payrate}}</strong></span>
+              
             </div>
           </div>
 
@@ -98,44 +88,63 @@
           
 
 
-         {% if context.has_other_pages %}
-        <div class="row pagination-wrap">
-          
-          <div class="col-md-6 text-center text-md-left">
-            <div class="custom-pagination ml-auto">
-               {% if context.has_previous %}
-              <li><a href="?page={{ context.previous_page_number }}" class="prev">Previous Page</a></li>
-            {% else %}
-              <li class="disabled"><span>No Previous Page</span></li>
-            {% endif %}
+      <div class="row pagination-wrap"  style="justify-content: center;">
 
-           
-            {% if context.has_next %}
-              <li><a href="?page={{ context.next_page_number }}" class="next">Next Page</a></li>
-            {% else %}
-              <li class="disabled"><span>No Next Page</span></li>
-            {% endif %}
-            
-            </div>
+      <div class="text-center text-md-left">
+            <div class="custom-pagination ml-auto">  
+              {% if context.has_previous %}
+
+                <a href="?page=1" class="prev"><<</a>
+                <a href="?page={{context.previous_page_number }}" class="prev ml-auto">Previous</a>
+              {% endif %}
+              <div class="d-inline-block">
+              {% for num in context.paginator.page_range %}
+                {% if context.number == num %}
+                <button class="btn btn-dark" disabled>{{ num }}</button>
+                {% elif num > context.number|add:'-7' and num < context.number|add:'7' %}
+                <button class="btn btn-light" onclick='location.href="?page={{num}}"'> {{ num }}</button>
+                {% endif %}
+              {% endfor %}
+              </div>
+              {% if context.has_next %}
+                <a href="?page={{ context.next_page_number }}" class="next ml-auto">Next</a>
+                <a href="?page={{ context.paginator.num_pages  }}" class="next ml-auto">>></a>
+              {% endif %}
+              </div>
           </div>
-        </div>
-    {% endif %}
       </div>
-    </section>
+       
+          
+          
+          
 
+      
+    </section>
+    {% if user.is_authenticated %}
+    {% else %}
     <section class="py-5 bg-image overlay-primary fixed overlay" style="background-image: url('images/hero_1.jpg');">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-8">
             <h2 class="text-white">Looking For A Job?</h2>
-            <p class="mb-0 text-white lead">Lorem ipsum dolor sit amet consectetur adipisicing elit tempora adipisci
-              impedit.</p>
+            <p class="mb-0 text-white lead">We provide the best job searching website.</p>
           </div>
           <div class="col-md-3 ml-auto">
-            <a href="#" class="btn btn-warning btn-block btn-lg">Sign Up</a>
+            <a href="{% url 'accounts:signup' %}" class="btn btn-warning btn-block btn-lg">Sign Up</a>
           </div>
         </div>
       </div>
     </section>
-    
+
+
+<!-- Button trigger modal -->
+
+
+
+
+
+
+
+
+    {% endif %}
 {% endblock %}

@@ -29,6 +29,11 @@ def profile(request):
 def about(request):
     return render(request, 'jobs/profile.html')
 
+def detail(request,pk):
+    job = JobPost.objects.filter(id=pk).first()
+    print(job)
+    return render(request,'jobs/detail.html',{'job':job})
+
 # def import_view(request):
 #     cwd = os.getcwd()
 #     file_to_read = cwd+'\\file\\sample.xlsx'
