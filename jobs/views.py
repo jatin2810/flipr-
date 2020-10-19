@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect
 from itertools import islice
 import os
 import openpyxl
-from .models import JobPost
+from .models import JobPost,JobApply
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 def home(request):
@@ -23,8 +24,13 @@ def home(request):
     # context={'data':data}
     return render(request, 'jobs/index.html',{'context':context})
 
+
 def profile(request):
-    return render(request, 'jobs/about.html')
+    user=request.user
+    jobs=JobApply.objects.filter(user=user)
+    # print(jobs)
+    return render(request,'jobs/profile.html',{'jobs':jobs})
+    # return render(request, 'jobs/about.html')
 
 def about(request):
     return render(request, 'jobs/profile.html')
@@ -33,6 +39,20 @@ def detail(request,pk):
     job = JobPost.objects.filter(id=pk).first()
     print(job)
     return render(request,'jobs/detail.html',{'job':job})
+
+def apply(request,job_id):
+    print(job_id)
+    if request.method=="POST":
+        user=request.user
+        job=JobPost.objects.filter(id=job_id).first()
+        JobApply(user=user,jobid=job).save()
+        # jobs=JobApply.objects.filter(user=user)
+        # print(jobs)
+        # return render(request,'jobs/profile.html',{'jobs':jobs})
+        return HttpResponseRedirect("/jobs/home/")
+
+
+
 
 # def import_view(request):
 #     cwd = os.getcwd()

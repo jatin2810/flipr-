@@ -97,7 +97,7 @@
    		</div>
    		<br>
    		<div>
-	   		<form action="{% url 'jobs:home'%}" id="myform" method='POST'>
+	   		<form action="{% url 'jobs:apply' job.id%}" id="myform" method='POST'>
 
 	   			{% csrf_token %}
 
