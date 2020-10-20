@@ -8,6 +8,9 @@ These are the following steps to run project :
   On Windows:
    py -m pip install --user virtualenv
    
+   ![1](https://user-images.githubusercontent.com/60659288/96621154-e87a9f00-1325-11eb-8bc4-f7b171269dce.JPG)
+
+   
 3. Creating a virtual environment:To create a virtual environment, go to your project’s directory and run venv. If you are using Python 2, replace venv with virtualenv in the below commands.
 
       On macOS and Linux:
