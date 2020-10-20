@@ -17,7 +17,7 @@ These are the following steps to run project :
    
 3. Creating a virtual environment:To create a virtual environment, go to your project’s directory and run venv. If you are using Python 2, replace venv with virtualenv in the below commands.
 
-      On macOS and Linux:
+      On macOS and Linux : 
       python3 -m venv env
       
       On Windows:
@@ -30,9 +30,6 @@ These are the following steps to run project :
           
       On Windows:
         .\env\Scripts\activate
-        
-        
-        
         
         ![2](https://user-images.githubusercontent.com/60659288/96621287-14962000-1326-11eb-83c0-48e12c093caf.JPG)
 
