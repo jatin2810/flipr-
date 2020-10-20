@@ -19,12 +19,16 @@ These are the following steps to run project :
       On Windows:
       py -m venv env
       
+      
 4. Activating a virtual environment:   
       On macOS and Linux:
           source env/bin/activate
           
       On Windows:
         .\env\Scripts\activate
+        
+        ![2](https://user-images.githubusercontent.com/60659288/96621287-14962000-1326-11eb-83c0-48e12c093caf.JPG)
+
         
 5. Installing packages
 Now that you’re in your virtual environment you can install packages.Go to the project directory i.e., "flipr-"  and run the following command
