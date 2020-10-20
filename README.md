@@ -40,5 +40,5 @@ Now that you’re in your virtual environment you can install packages.Go to the
 6. Run Server : After installing all the requirements run the following command in the command prompt 
     python manage.py runserver
     
-    
+ 
     
