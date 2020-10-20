@@ -1,7 +1,7 @@
 These are the following steps to run project : 
-1. Python must be intalled on the system.
+##1. Python must be intalled on the system.
 
-2. Installing virtualenv : Run these commands on command prompt
+##2. Installing virtualenv : Run these commands on command prompt
    On macOS and Linux:
     python3 -m pip install --user virtualenv
     
@@ -11,7 +11,7 @@ These are the following steps to run project :
    ![1](https://user-images.githubusercontent.com/60659288/96621154-e87a9f00-1325-11eb-8bc4-f7b171269dce.JPG)
 
    
-3. Creating a virtual environment:To create a virtual environment, go to your project’s directory and run venv. If you are using Python 2, replace venv with virtualenv in the below commands.
+##3. Creating a virtual environment:To create a virtual environment, go to your project’s directory and run venv. If you are using Python 2, replace venv with virtualenv in the below commands.
 
       On macOS and Linux:
       python3 -m venv env
@@ -20,7 +20,7 @@ These are the following steps to run project :
       py -m venv env
       
       
-4. Activating a virtual environment:   
+##4. Activating a virtual environment:   
       On macOS and Linux:
           source env/bin/activate
           
@@ -30,15 +30,20 @@ These are the following steps to run project :
         ![2](https://user-images.githubusercontent.com/60659288/96621287-14962000-1326-11eb-83c0-48e12c093caf.JPG)
 
         
-5. Installing packages
+##5. Installing packages
 Now that you’re in your virtual environment you can install packages.Go to the project directory i.e., "flipr-"  and run the following command
 
   pip install -r requirements.txt
   ![3](https://user-images.githubusercontent.com/60659288/96621483-4a3b0900-1326-11eb-81e6-c8e74f742247.JPG)
 
  
-6. Run Server : After installing all the requirements run the following command in the command prompt 
+##6. Run Server : After installing all the requirements run the following command in the command prompt 
     python manage.py runserver
-    
+    ![4](https://user-images.githubusercontent.com/60659288/96621623-7a82a780-1326-11eb-8008-faf1d6525b28.JPG)
+ 
+ 
+ ##7. Run any browser and open the following url :
+      http://127.0.0.1:8000/jobs/home/
+      ![5](https://user-images.githubusercontent.com/60659288/96621738-9d14c080-1326-11eb-9ccf-4cda72f25a07.JPG)
  
     
