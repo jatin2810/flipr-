@@ -1,5 +1,5 @@
 These are the following steps to run project : 
-1. Python must be intalled on the system.
+1. Python must be installed on the system.
 
 2. Installing virtualenv : Run these commands on command prompt
    On macOS and Linux:
