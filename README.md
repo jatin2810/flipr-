@@ -31,7 +31,9 @@ These are the following steps to run project :
       On Windows:
         .\env\Scripts\activate
         
-        ![2](https://user-images.githubusercontent.com/60659288/96621287-14962000-1326-11eb-83c0-48e12c093caf.JPG)
+        
+   ![2](https://user-images.githubusercontent.com/60659288/96622780-047f4000-1328-11eb-9a8c-0af7c929f517.JPG)
+
 
         
 5. Installing packages
